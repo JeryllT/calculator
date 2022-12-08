@@ -4,44 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IOS-like Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
     <div class="canvas">
         <div class="calculator">
             <div class="calculator-body">
-                <div class="calculator-row">
-                    <button id="display" class="calculator-item"></button>
+                <div class="display">
+                    <div data-previous class="previous-operand">
+                    </div>
+                    <div data-current class="current-operand">
+                    </div>
                 </div>
                 <div class="calculator-row">
-                    <button class="calculator-item">AC</button>
-                    <button class="calculator-item">+/-</button>
-                    <button class="calculator-item">%</button>
-                    <button class="calculator-item">/</button>
+                    <button data-clear class="calculator-item rest">AC</button>
+                    <button data-operation class="calculator-item rest">+/-</button>
+                    <button data-percent class="calculator-item rest">%</button>
+                    <button data-operation id="divide" class="calculator-item right-side">÷</button>
                 </div>
                 <div class="calculator-row">
-                    <button class="calculator-item">7</button>
-                    <button class="calculator-item">8</button>
-                    <button class="calculator-item">9</button>
-                    <button class="calculator-item">*</button>
+                    <button data-number class="calculator-item rest">7</button>
+                    <button data-number class="calculator-item rest">8</button>
+                    <button data-number class="calculator-item rest">9</button>
+                    <button data-operation class="calculator-item right-side">×</button>
                 </div>
                 <div class="calculator-row">
-                    <button class="calculator-item">4</button>
-                    <button class="calculator-item">5</button>
-                    <button class="calculator-item">6</button>
-                    <button class="calculator-item">-</button>
+                    <button data-number class="calculator-item rest">4</button>
+                    <button data-number class="calculator-item rest">5</button>
+                    <button data-number class="calculator-item rest">6</button>
+                    <button data-operation class="calculator-item right-side">-</button>
                 </div>
                 <div class="calculator-row">
-                    <button class="calculator-item">1</button>
-                    <button class="calculator-item">2</button>
-                    <button class="calculator-item">3</button>
-                    <button class="calculator-item">+</button>
+                    <button data-number class="calculator-item rest">1</button>
+                    <button data-number class="calculator-item rest">2</button>
+                    <button data-number class="calculator-item rest">3</button>
+                    <button data-operation class="calculator-item right-side">+</button>
                 </div>
                 <div class="calculator-row">
-                    <button id="zero" class="calculator-item">0</button>
-                    <button id="dot" class="calculator-item">.</button>
-                    <button id="equal" class="calculator-item">=</button>
+                    <button data-number class="calculator-item zero rest">0</button>
+                    <button data-number class="calculator-item dot rest">.</button>
+                    <button data-equals class="calculator-item equal right-side">=</button>
                 </div>
             </div>
         </div> 

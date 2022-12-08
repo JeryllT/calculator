@@ -1,5 +1,9 @@
 body {
+    box-sizing: border-box;
     background-color: #f4efef;
+    padding: 0;
+    margin:0;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .canvas {
@@ -10,7 +14,6 @@ body {
 
 .calculator {
     display: flex;
-    border: 3px solid black;
     justify-content: center;
     border-radius: 3%;
     height: 600px;
@@ -26,6 +29,7 @@ body {
     height: 100%;
 }
 
+.display,
 .calculator-row {
     display: flex;
     width: 80%;
@@ -34,20 +38,65 @@ body {
 
 .calculator-item {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2em;
+    background-color: #d6d6d6;
+    color: black;
     width: 100%;
     height: 100%;
 }
 
-#zero {
+.zero {
     flex: 2;
-    padding-right: 25px;
+    padding-right: 2px;
+    border-radius: 0px 0px 0px 15px ;
 }
 
-#dot {
+.dot {
     flex: 1;
 }
 
-#equal {
+.equal {
     flex: 1;
+    border-radius: 0px 0px 15px 0px ;
+}
+
+.display {
+    flex-direction: column;
+    text-align: end;
+    justify-content: space-around;
+    background-color: #4c4c4c;
+    border-radius: 15px 15px 0px 0px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+button {
+    padding: 0;
+    border: 1px solid #acadac;
+}
+
+.previous-operand {
+    color:rgba(255, 255, 255, 0.75);
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+.current-operand {
+    color:rgba(255, 255, 255, 1);
+    padding: 0px 10px 5px 0px;
+    font-size: 2rem;
+}
+
+.right-side {
+    background-color: rgba(242, 147, 49, 1);
+    color: white;
+    font-size: 3em;
+}
+
+button.right-side:hover {
+    background-color: rgba(242, 147, 49, 0.5);
+}
+
+button.rest:hover {
+    background-color: rgba(214, 214, 214, 0.5);
 }
