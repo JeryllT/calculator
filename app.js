@@ -9,7 +9,6 @@ class Calculator {
         this.previous = ""
         this.current = ""
         this.operation = undefined
-        
     }
     
     appendNumber(number) {
@@ -24,7 +23,6 @@ class Calculator {
         }
         this.operation = operator
         this.previous = this.current
-        this.previous += " " + this.operation
         this.current = ""
     }
 
@@ -65,13 +63,32 @@ class Calculator {
     }
 
     getDisplayNumber(num) {
-        return num
+        const numString = num.toString()
+        const intDigits = parseFloat(numString.split(".")[0])
+        const fracDigits = numString.split(".")[1]
+
+        let intDisplay
+        if (isNaN(intDigits)){
+            intDisplay = ""
+        } else {
+            intDisplay = intDigits.toLocaleString("en", {maximumFractionDigits: 0})
+            console.log(intDisplay)
+        }
+        if (fracDigits !== undefined) {
+            return `${intDisplay}.${fracDigits}`
+        } else {
+            console.log(intDisplay)
+            return intDisplay
+        }
     }
 
     updateDisplay() {
-        this.previousOperandTextEle.textContent = this.getDisplayNumber(this.previous)
         this.currentOperandTextEle.textContent = this.getDisplayNumber(this.current)
-        
+        if (this.operation !== undefined){
+            this.previousOperandTextEle.textContent = `${this.getDisplayNumber(this.previous)} ${this.operation}`
+        } else {
+            this.previousOperandTextEle.textContent = ""
+        }
     }
 }
 
