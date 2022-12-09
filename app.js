@@ -28,6 +28,16 @@ class Calculator {
         this.current = ""
     }
 
+    signChange() {
+        console.log(this.current.slice(0,1))
+        if (this.current.slice(0,1) === "-") {
+            console.log(this.current.slice(1))
+            this.current = this.current.slice(1)
+        } else {
+            this.current = "-" + this.current
+        }
+    }
+
     compute() {
         let computation
         const prev = parseFloat(this.previous)
@@ -63,7 +73,6 @@ class Calculator {
         this.currentOperandTextEle.textContent = this.getDisplayNumber(this.current)
         
     }
-
 }
 
 
@@ -75,6 +84,7 @@ const current = document.querySelector('[data-current]')
 const clear = document.querySelector('[data-clear]')
 const percent = document.querySelector('[data-percent]')
 const equal = document.querySelector('[data-equals]')
+const sign = document.querySelector('[data-sign]')
 
 const calculator = new Calculator(previous, current)
 
@@ -99,5 +109,10 @@ ops.forEach(button => {
 
 equal.addEventListener("click", () =>{
     calculator.compute()
+    calculator.updateDisplay()
+})
+
+sign.addEventListener("click", () => {
+    calculator.signChange()
     calculator.updateDisplay()
 })
